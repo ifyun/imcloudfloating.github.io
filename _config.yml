@@ -2,7 +2,7 @@
 title: '浮云的博客'
 description: ''
 keyword: '浮云'
-url: 'cloudli.top'' # your host
+url: 'cloudli.top' # your host
 
 # when build blog on server, if you don't need baseurl, you should leave this value blank.
 # 在服务器上建站时，如果你不需要子域名，请将这一格留空
