@@ -1,7 +1,7 @@
 ---
 title: "Spring Boot & MyBatis 实现乐观锁和悲观锁"
 date: 2019-09-04 20:25:00 +0800
-categories: [Spring Boot, Java]
+categories: [Spring Boot, 乐观锁&悲观锁]
 tags: [Spring Boot]
 ---
 
