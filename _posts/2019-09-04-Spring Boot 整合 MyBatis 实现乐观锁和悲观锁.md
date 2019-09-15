@@ -22,7 +22,7 @@ tags: [Spring Boot]
 
 ## 建立数据表并插入数据（MySQL）
 
-```mysql
+```sql
 create table account
 (
     id      int auto_increment
