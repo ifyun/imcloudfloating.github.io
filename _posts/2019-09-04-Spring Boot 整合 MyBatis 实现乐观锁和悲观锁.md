@@ -1,5 +1,5 @@
 ---
-title: "Text and Typography"
+title: "Spring Boot & MyBatis 实现乐观锁和悲观锁"
 date: 2019-08-08 11:33:00 +0800
 categories: [Spring Boot, Java]
 tags: [Spring Boot]
