@@ -231,7 +231,7 @@ public class RetryException extends RuntimeException {
 
 ### 重试的切面类
 
-tryAgain 方法使用了 @Around 注解（表示环绕通知），可以决定目标方法在何时执行，或者不执行，以及自定义返回结果。这里首先通过 ProceedingJoinPoint.proceed() 方法执行目标方法，如果抛出了重试异常，那么重新执行知道满三次，三次都不成功则回滚并返回 FAILED。
+tryAgain 方法使用了 @Around 注解（表示环绕通知），可以决定目标方法在何时执行，或者不执行，以及自定义返回结果。这里首先通过 ProceedingJoinPoint.proceed() 方法执行目标方法，如果抛出了重试异常，那么重新执行直到满三次，三次都不成功则回滚并返回 FAILED。
 
 ```java
 @Slf4j
