@@ -1,0 +1,55 @@
+<!--
+  The Top Bar
+  © 2017-2019 Cotes Chung
+  MIT License
+-->
+<div id="topbar" class="bg-white row justify-content-center topbar-down">
+
+  <div id="topbar-main" class="d-flex h-100 align-items-center justify-content-between col-12 col-md-12 col-lg-11 col-xl-11 pl-md-2 pr-md-2 pl-lg-2 pr-lg-2">
+
+    {% assign lang = site.data.meta.lang %}
+
+    <span id="breadcrumb">
+      {% for item in page.breadcrumb %}
+        {% if item.url %}
+        <span>
+          <a href="{{ site.baseurl }}{{ item.url | remove: '.html'}}">
+            {{ item.label[lang] }}
+          </a>
+        </span>
+        {% else %}
+          <span>{{ item.label[lang] }}</span>
+        {% endif %}
+      {% endfor %}
+
+      {% if page.title.en or page.title.zh %}
+        {% unless page.layout == "home" %}
+        <span>{{ page.title.[lang] }}</span>
+        {% endunless %}
+      {% else %}
+        <span>{{ page.title }}</span>
+      {% endif %}
+
+    </span><!-- endof #breadcrumb -->
+
+    <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
+
+    <div id="topbar-title">
+    {% if page.location %}
+      {{-page.location[lang]-}}
+    {% elsif page.layout == "home" %}
+      {{-site.data.meta.title-}}
+    {% else %}
+      {{-page.title[lang]-}}
+    {% endif %}
+    </div>
+
+    <i id="search-trigger" class="fas fa-search fa-fw"></i>
+    <span id="search-wrap">
+      <i class="fas fa-search fa-fw"></i>
+      <input class="form-control" id="search-input" type="search" placeholder="{{ site.data.label.search_hint[lang] }}...">
+    </span>
+    <a href="javascript:;">Cancel</a>
+  </div>
+
+</div>

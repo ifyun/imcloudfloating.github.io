@@ -1,0 +1,14 @@
+{
+  "kind": "analytics#gaData",
+  "rows": [
+    [
+      "/",
+      "6307"
+    ],
+    [
+      "/posts/example-post/",
+      "1053"
+    ]
+  ],
+  "totalResults": 2
+}

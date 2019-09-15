@@ -1,0 +1,39 @@
+# The meta data of site.
+# © 2017-2019 Cotes Chung
+# MIT License
+
+# Replace with your domain, e.g. "https://username.github.io"
+uri: "http://cloudli.top"
+
+title: "Cloud"
+
+subtitle: "A text-based Jekyll theme."
+
+profile:
+  img: "https://avatars2.githubusercontent.com/u/22742796?s=460&v=4"   # Support network resources.
+  name:  Cloud Li                           # change to your full name
+  email: wfloatingcloud@outlook.com               # change to your email address
+  github: imcloudfloating                 # change to your github username
+  # twitter: twitter_username               # change to your twitter username
+
+# Change to your Google Analytics ID
+ga_id: ""
+
+# Change to your Disqus shortname.
+disqus_shortname: "disqus"
+
+# The year your website was first run.
+first_run: 2019
+
+# boolean type, the gobal switch of posts' comments.
+comments: false
+
+# boolean type, gobal switch for ToC in posts.
+toc: true
+
+# Google Analytics pageviews and DO NOT enable it
+# unless you know how to deploy the Google Analytics superProxy.
+pv: false
+
+# Must be 'en' or 'zh'
+lang: zh
