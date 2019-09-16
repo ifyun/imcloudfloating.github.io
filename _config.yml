@@ -27,7 +27,7 @@ permalink: /posts/:title/
 defaults:
   -
     scope:
-      path: ""        # An empty string here means all files in the project
+      path: "posts"        # An empty string here means all files in the project
       type: posts
     values:
       layout: post
