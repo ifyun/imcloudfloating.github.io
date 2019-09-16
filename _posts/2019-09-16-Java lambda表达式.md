@@ -2,7 +2,7 @@
 title: "Java lambda表达式"
 date: 2019-09-16 23:26 +0800
 categories: [Java]
-tags: [lambda表达式]
+tags: [Java, lambda]
 ---
 
 lambda 表达式是一个可传递的代码块，可以在以后执行一次或多次。
