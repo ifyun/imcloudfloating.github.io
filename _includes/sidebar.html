@@ -1,0 +1,70 @@
+<!--
+  The Side Bar
+  © 2017-2019 Cotes Chung
+  MIT License
+-->
+<div id="nav-wrap">
+  <div id="profile-wrap" class="d-flex justify-content-center">
+    <div id="profile">
+      <a href="{{ site.baseurl }}/" alt="profile-photo">
+        {% assign profile_img = site.data.meta.profile.img %}
+        {% if profile_img | slice: 0 == '/' %}
+          {% assign profile_img = profile_img | prepend: site.baseurl %}
+        {% endif %}
+        <img src="{{ profile_img }}"></img>
+      </a>
+    </div>
+  </div>
+  <div id="site-title" class="d-flex justify-content-center align-items-center">
+    <a href="{{ site.baseurl }}/">{{- site.data.meta.title -}}</a>
+  </div>
+  <div id="site-subtitle" class="font-italic">{{ site.data.meta.subtitle }}</div>
+  <ul class="nav flex-column">
+    {% assign page_urls = page.url | split: "/" %}
+    {% for item in site.data.label.tabs %}
+      {% assign ref = site.baseurl | append: "/" %}
+      {% if item.path %}
+      {% assign ref = ref | append: item.path | append: "/" %}
+        {% if item.url %}
+          {% assign ref = ref | append: item.url | append: "/" %}
+        {% endif %}
+      {% endif %}
+
+      {% assign is_home_scope = false %}
+      {% assign cur_url_prefix = page.url | slice: 0, 5 %}
+      {% if page.url == "/" or cur_url_prefix == "/page"%}
+        {% assign is_home_scope = true %}
+      {% endif %}
+    <li class="nav-item d-flex justify-content-center
+      {% if item.url == page_urls.last or item.name.en == "Home" and is_home_scope %}
+      active
+      {%- endif -%}">
+      <a href="{{ ref }}" class="nav-link d-flex justify-content-center align-items-center w-100"><!-- <i class="{{ item.icon }}"></i> -->
+      {%- if site.data.meta.lang == 'zh' -%}
+        {{ item.name.zh }}
+      {%- else -%}
+        {{ item.name.en | upcase }}
+      {%- endif -%}
+      </a>
+    </li> <!-- .nav-item -->
+    {% endfor %}
+    <span class="cursor"></span>
+  </ul> <!-- ul.nav -->
+
+</div><!-- #nav-wrap -->
+
+<div class="contact d-flex justify-content-around mt-3">
+  <a href="https://github.com/{{ site.data.meta.profile.github }}" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://twitter.com/{{ site.data.meta.profile.twitter }}" target="_blank">
+    <i class="fab fa-twitter"></i>
+  </a>
+  {% assign email = site.data.meta.profile.email | split: '@' %}
+  <a href="javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="{{ site.baseurl }}/feed.xml" target="_blank">
+    <i class="fas fa-rss"></i>
+  </a>
+</div>

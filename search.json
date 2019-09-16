@@ -1,1 +1,14 @@
-[ { "title": "Java 对象克隆", "url": "/posts/Java-%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86/", "categories": "Java", "tags": "Java", "date": "2019-09-16 03:50:00 +0000" }, { "title": "TCP 建立与释放连接", "url": "/posts/TCP-%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%87%8A%E6%94%BE%E8%BF%9E%E6%8E%A5/", "categories": "TCP, 连接管理", "tags": "TCP", "date": "2019-09-15 07:17:00 +0000" }, { "title": "Spring Boot &amp; MyBatis 实现乐观锁和悲观锁", "url": "/posts/Spring-Boot-&-MyBatis-%E5%AE%9E%E7%8E%B0%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/", "categories": "Spring Boot, 乐观锁&悲观锁", "tags": "Spring Boot", "date": "2019-09-04 12:25:00 +0000" }, { "title": "Getting Started", "url": "/posts/getting-started/", "categories": "Blogging, Tutorial", "tags": "usage", "date": "2019-08-09 12:55:00 +0000" }, { "title": "Write a new Post", "url": "/posts/write-a-new-post/", "categories": "Blogging, Tutorial", "tags": "writting", "date": "2019-08-08 06:10:00 +0000" } ]
+---
+layout: compress
+---
+[
+  {% for post in site.posts %}
+  {
+    "title": "{{ post.title | escape }}",
+    "url": "{{ site.baseurl }}{{ post.url }}",
+    "categories": "{{ post.categories | join: ', '}}",
+    "tags": "{{ post.tags | join: ', ' }}",
+    "date": "{{ post.date }}"
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

@@ -1,1 +1,54 @@
-<feed xmlns="http://www.w3.org/2005/Atom"> <id>http://cloudli.top</id><title>浮云Cloud</title><updated>2019-09-16T09:42:22+00:00</updated> <author> <name>Cloud Li</name> <uri>http://cloudli.top</uri> </author><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="http://cloudli.top" rel="alternate" type="text/html" /> <generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator> <rights> © 2019 Cloud Li </rights> <icon>/assets/img/favicons/favicon.ico</icon> <logo>/assets/img/favicons/favicon-96x96.png</logo> <entry><title>Java 对象克隆</title><link href="http://cloudli.top/posts/Java-%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86/" rel="alternate" type="text/html" title="Java 对象克隆" /><published>2019-09-16T03:50:00+00:00</published> <updated>2019-09-16T03:55:06+00:00</updated> <id>http://cloudli.top/posts/Java-%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86/</id> <content src="http://cloudli.top/posts/Java-%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86/" /> <author> <name>Cloud Li</name> </author> <category term="Java" /> <summary>什么是对象克隆 如果为一个包含对象引用的变量建立副本，原变量和副本都是同一个对象的引用。任何一个变量的改变都会影响另一个变量。 1 2 3 Employee original = new Employee("Tom", 50000); Employee copy = original; copy.riseSalary(10); // 会影响 original 如果希望 copy ...</summary> </entry> <entry><title>TCP 建立与释放连接</title><link href="http://cloudli.top/posts/TCP-%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%87%8A%E6%94%BE%E8%BF%9E%E6%8E%A5/" rel="alternate" type="text/html" title="TCP 建立与释放连接" /><published>2019-09-15T07:17:00+00:00</published> <updated>2019-09-16T03:53:27+00:00</updated> <id>http://cloudli.top/posts/TCP-%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%87%8A%E6%94%BE%E8%BF%9E%E6%8E%A5/</id> <content src="http://cloudli.top/posts/TCP-%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%87%8A%E6%94%BE%E8%BF%9E%E6%8E%A5/" /> <author> <name>Cloud Li</name> </author> <category term="TCP" /> <category term="连接管理" /> <summary>TCP 连接的建立（三次握手） TCP 建立连接的过程叫握手，握手需要在客户端与服务器之间交换三个 TCP 报文段（简称三次握手）。 一开始，B 的服务器进程处于 LISTEN 状态，等待客户端的连接请求。 A 的客户端进程建立 TCP 连接，向 B 发出连接请求报文段，首部中的同部位 SYN = 1，同时选择一个初始的随机序号 seq = x。这时，客户进程进入 SYN-SENT...</summary> </entry> <entry><title>Spring Boot & MyBatis 实现乐观锁和悲观锁</title><link href="http://cloudli.top/posts/Spring-Boot-&-MyBatis-%E5%AE%9E%E7%8E%B0%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/" rel="alternate" type="text/html" title="Spring Boot & MyBatis 实现乐观锁和悲观锁" /><published>2019-09-04T12:25:00+00:00</published> <updated>2019-09-16T09:42:22+00:00</updated> <id>http://cloudli.top/posts/Spring-Boot-&-MyBatis-%E5%AE%9E%E7%8E%B0%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/</id> <content src="http://cloudli.top/posts/Spring-Boot-&-MyBatis-%E5%AE%9E%E7%8E%B0%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/" /> <author> <name>Cloud Li</name> </author> <category term="Spring Boot" /> <category term="乐观锁&悲观锁" /> <summary>以转账操作为例，实现并测试乐观锁和悲观锁。 全部代码：https://github.com/imcloudfloating/Lock_Demo 死锁问题 当 A, B 两个账户同时向对方转账时，会出现如下情况： 时刻 事务 1 (A 向 B 转账) 事务 2 (B 向 A 转账) T1 ...</summary> </entry> <entry><title>Getting Started</title><link href="http://cloudli.top/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" /><published>2019-08-09T12:55:00+00:00</published> <updated>2019-09-16T09:42:22+00:00</updated> <id>http://cloudli.top/posts/getting-started/</id> <content src="http://cloudli.top/posts/getting-started/" /> <author> <name>Cloud Li</name> </author> <category term="Blogging" /> <category term="Tutorial" /> <summary>Basic Environment First of all, follow the Jekyll Docs to complete the basic environment (Ruby, RubyGem, Bundler and Jekyll) installation. In addition, the python and ruamel.yaml are also requi...</summary> </entry> <entry><title>Write a new Post</title><link href="http://cloudli.top/posts/write-a-new-post/" rel="alternate" type="text/html" title="Write a new Post" /><published>2019-08-08T06:10:00+00:00</published> <updated>2019-09-16T09:42:22+00:00</updated> <id>http://cloudli.top/posts/write-a-new-post/</id> <content src="http://cloudli.top/posts/write-a-new-post/" /> <author> <name>Cloud Li</name> </author> <category term="Blogging" /> <category term="Tutorial" /> <summary>Naming and Path Create a new file name with the format YYYY-MM-DD-title.md then put it into _post of the root directory. Front Matter Basically, you need to fill the Front Matter as below at the...</summary> </entry> </feed>
+---
+layout: compress
+# Atom Feed, reference: https://validator.w3.org/feed/docs/atom.html
+# © 2019 Cotes Chung
+# MIT License
+---
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>{{ site.data.meta.uri }}</id>
+  <title>{{ site.data.meta.title }}</title>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author>
+    <name>{{ site.data.meta.profile.name }}</name>
+    <uri>{{ site.data.meta.uri }}</uri>
+  </author>
+  <link href="/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="{{ site.data.meta.uri }}" rel="alternate" type="text/html" />
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <rights> © {{ 'now' | date: '%Y' }} {{ site.data.meta.profile.name }} </rights>
+  <icon>{{ site.baseurl }}/assets/img/favicons/favicon.ico</icon>
+  <logo>{{ site.baseurl }}/assets/img/favicons/favicon-96x96.png</logo>
+
+{% for post in site.posts limit: 5 %}
+  {% assign post_absolute_url = site.data.meta.uri | append: post.url %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="{{ post_absolute_url }}" rel="alternate" type="text/html" title="{{ post.title }}" />
+    <published>{{ post.date | date_to_xmlschema }}</published>
+  {% if post.lastmod %}
+    <updated>{{ post.lastmod | date_to_xmlschema }}</updated>
+  {% else %}
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+  {% endif %}
+    <id>{{ post_absolute_url }}</id>
+    <content src="{{ post_absolute_url }}" />
+    <author>
+      <name>{{ site.data.meta.profile.name }}</name>
+    </author>
+
+  {% if post.categories %}
+    {% for category in post.categories %}
+    <category term="{{ category }}" />
+    {% endfor %}
+  {% endif %}
+
+  {% if post.summary %}
+    <summary>{{ post.summary | strip }}</summary>
+  {% else %}
+    <summary>{{ post.content | strip_html | replace: '&', '' | truncate: 200 }}</summary>
+  {% endif %}
+
+  </entry>
+{% endfor %}
+</feed>

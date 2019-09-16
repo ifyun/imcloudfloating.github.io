@@ -1,1 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?> <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> <url> <loc>http://cloudli.top/posts/Java-%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86/</loc> <lastmod>2019-09-16T03:55:06+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.5</priority> </url> <url> <loc>http://cloudli.top/posts/TCP-%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%87%8A%E6%94%BE%E8%BF%9E%E6%8E%A5/</loc> <lastmod>2019-09-16T03:53:27+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.5</priority> </url> <url> <loc>http://cloudli.top/posts/Spring-Boot-&-MyBatis-%E5%AE%9E%E7%8E%B0%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/</loc> <lastmod>2019-09-04T12:25:00+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.5</priority> </url> <url> <loc>http://cloudli.top/posts/getting-started/</loc> <lastmod>2019-08-09T12:55:00+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.5</priority> </url> <url> <loc>http://cloudli.top/posts/write-a-new-post/</loc> <lastmod>2019-08-08T06:10:00+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.5</priority> </url> <url> <loc>http://cloudli.top/tabs/about/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tabs/archives/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/blogging/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/browserconfig.xml</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tabs/categories/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/assets/js/dist/commons.js</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/feed.xml</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/java/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tags/java/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/manifest.json</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/robots.txt</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/sitemap.xml</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/spring-boot/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tags/spring-boot/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/assets/css/styles.css</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tabs/tags/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/tcp/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tags/tcp/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/tutorial/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tags/usage/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/tags/writting/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/%C0%D6%B9%DB%CB%F8&%B1%AF%B9%DB%CB%F8/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> <url> <loc>http://cloudli.top/categories/%C1%AC%BD%D3%B9%DC%C0%ED/</loc> <lastmod>2019-09-16T09:42:22+00:00</lastmod> <changefreq>monthly</changefreq><priority>0.3</priority> </url> </urlset>
+---
+layout: compress
+# The Sitemap template
+# © 2017-2019 Cotes Chung
+# MIT License
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for post in site.posts %}
+  {% unless post.published == false %}
+
+    {% capture lastmod %}
+      {% if post.lastmod %}
+        {{ post.lastmod }}
+      {% elsif post.date %}
+          {{ post.date }}
+        {% else %}
+          {{ site.time }}
+        {% endif %}
+      {% endcapture %}
+
+  <url>
+    <loc>{{ site.data.meta.uri | append: site.baseurl | append: post.url }}</loc>
+    <lastmod>{{ lastmod | date_to_xmlschema }}</lastmod>
+
+    {% if post.sitemap.changefreq %}
+      <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+    {% else %}
+      <changefreq>monthly</changefreq>
+    {% endif %}
+
+    {% if post.sitemap.priority %}
+      <priority>{{ post.sitemap.priority }}</priority>
+    {% else %}
+      <priority>0.5</priority>
+    {% endif %}
+  </url>
+  {% endunless %}
+{% endfor %}
+
+{% for page in site.pages %}
+
+  {% if site.sitemap_exclude contains page.url %}
+    {% continue %}
+  {% endif %}
+
+  {% capture lastmod %}
+    {% if page.lastmod %}
+      {{ page.lastmod }}
+    {% elsif page.date %}
+      {{ page.date }}
+    {% else %}
+      {{ site.time }}
+    {% endif %}
+  {% endcapture %}
+
+   <url>
+    <loc>{{ site.data.meta.uri | append: site.baseurl | append: page.url | remove: "index.html" }}</loc>
+    <lastmod>{{ lastmod | date_to_xmlschema }}</lastmod>
+
+    {% if page.sitemap.changefreq %}
+      <changefreq>{{ page.sitemap.changefreq }}</changefreq>
+    {% else %}
+      <changefreq>monthly</changefreq>
+    {% endif %}
+
+    {% if page.sitemap.priority %}
+      <priority>{{ page.sitemap.priority }}</priority>
+    {% else %}
+      <priority>0.3</priority>
+    {% endif %}
+  </url>
+
+{% endfor %}
+
+</urlset>
