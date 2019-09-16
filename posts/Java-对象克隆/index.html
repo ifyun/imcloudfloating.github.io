@@ -1,0 +1,99 @@
+<h2 id="什么是对象克隆">什么是对象克隆</h2>
+
+<p>如果为一个包含对象引用的变量建立副本，原变量和副本都是同一个对象的引用。任何一个变量的改变都会影响另一个变量。</p>
+
+<p><img src="https://cloudli.top/assets/img/posts/java_copy.png" alt="复制" /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">Employee</span> <span class="n">original</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Employee</span><span class="o">(</span><span class="s">"Tom"</span><span class="o">,</span> <span class="mi">50000</span><span class="o">);</span>
+<span class="nc">Employee</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">original</span><span class="o">;</span>
+<span class="n">copy</span><span class="o">.</span><span class="na">riseSalary</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>	<span class="c1">// 会影响 original</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>如果希望 copy 是一个新对象，它的初始状态与 original 相同，但是之后他们各自有自己的状态，这种情况下就可以使用 clone 方法。</p>
+
+<p><img src="https://cloudli.top/assets/img/posts/java_clone.png" alt="克隆" /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">Employee</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+<span class="n">copy</span><span class="o">.</span><span class="na">riseSalary</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>	<span class="c1">// 不改变 original</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="浅克隆与深克隆">浅克隆与深克隆</h2>
+
+<p>如果对象只包含基本类型，那么浅克隆没有问题；如果对象包含子对象的引用，克隆域就会得到相同子对象的另一个引用，这样一来，原对象和克隆对象仍然会共享一些信息。</p>
+
+<p><img src="https://cloudli.top/assets/img/posts/java_shallow_clone.png" alt="浅克隆" /></p>
+
+<p>如果原对象和浅克隆对象共享的子对象是不可变的，那么这种克隆是安全的。但是通常子对象都是可变的，必须重新定义 clone 方法来建立一个深克隆，同时克隆所有子对象。</p>
+
+<p>对于每一个类，需要确定：</p>
+
+<ol>
+  <li>默认的 clone 方法是否满足需求；</li>
+  <li>是否可以在可变的子对象上调用 clone 来修补默认的 clone 方法；</li>
+  <li>是否不该使用 clone。</li>
+</ol>
+
+<p>对于第 1 项或 第 2 项，类必须：</p>
+
+<ol>
+  <li>实现 Cloneable 接口；</li>
+  <li>重新定义 clone 方法，并指定 public 访问修饰符。</li>
+</ol>
+
+<blockquote>
+  <p>Object 类中的 clone 方法声明为 protected，所以不能直接调用 anObject.clone() 。子类只能调用受保护的 clone 方法来克隆它自己的对象。必须重新定义 clone 为 public 才能允许所有方法克隆对象。</p>
+</blockquote>
+
+<p>这里 Cloneable 接口只是作为一个标记，如果一个对象请求克隆，但没有实现这个接口，就会抛出一个受检查异常。</p>
+
+<p>即使 clone 默认的浅拷贝能够满足要求，还是需要实现 Cloneable 接口，将 clone 定义为 public，再调用 super.clone() 。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">implements</span> <span class="nc">Cloneable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">Employee</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">CloneNotSupportedException</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="nc">Employee</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>建立深克隆：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">implements</span> <span class="nc">Cloneable</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="kd">public</span> <span class="nc">Employee</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">CloneNotSupportedException</span> <span class="o">{</span>
+        <span class="c1">// 克隆自己</span>
+        <span class="nc">Employee</span> <span class="n">cloned</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Employee</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        <span class="c1">// 克隆可变的域</span>
+        <span class="n">cloned</span><span class="o">.</span><span class="na">hireDay</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Date</span><span class="o">)</span> <span class="n">hireDay</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        
+        <span class="k">return</span> <span class="n">cloned</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>实际上，克隆并不常用，标准库只有不到 5% 的类实现了 clone 。</p>
+

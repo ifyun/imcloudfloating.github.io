@@ -1,0 +1,124 @@
+<h2 id="naming-and-path">Naming and Path</h2>
+
+<p>Create a new file name with the format <code class="highlighter-rouge">YYYY-MM-DD-title.md</code> then put it into <code class="highlighter-rouge">_post</code> of the root directory.</p>
+
+<h2 id="front-matter">Front Matter</h2>
+
+<p>Basically, you need to fill the <a href="https://jekyllrb.com/docs/front-matter/">Front Matter</a> as below at the top of the post:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">TITLE</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">YYYY-MM-DD HH:MM:SS +/-TTTT</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">TOP_CATEGORIE</span><span class="pi">,</span> <span class="nv">SUB_CATEGORIE</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">TAG</span><span class="pi">]</span>
+<span class="nn">---</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note</strong>: The posts’ <strong><em>layout</em></strong> has been set to <code class="highlighter-rouge">post</code> by default, so there is no need to add the variable <strong><em>layout</em></strong> in Front Matter block.</p>
+</blockquote>
+
+<h3 id="categories-and-tags">Categories and Tags</h3>
+
+<p>The pages for all the categories and tags are placed in the <code class="highlighter-rouge">categoreis</code> and <code class="highlighter-rouge">tags</code> respectively.</p>
+
+<p>Let’s say there is a post with title <code class="highlighter-rouge">The Beautify Rose</code>, it’s Front Matter as follow:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">Beautify</span><span class="nv"> </span><span class="s">Rose"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Plant</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">flower</span><span class="pi">]</span>
+<span class="nn">---</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note</strong>: <code class="highlighter-rouge">categories</code> is designed to contain up to two elements.</p>
+</blockquote>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<p>By default, the <strong>T</strong>able <strong>o</strong>f <strong>C</strong>ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to <code class="highlighter-rouge">_data/settings.yml</code> and set the variable <code class="highlighter-rouge">toc</code> to <code class="highlighter-rouge">false</code>. If you want to turn off TOC for specific post, add the following to post’s <a href="https://jekyllrb.com/docs/front-matter/">Front Matter</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="no">false</span>
+<span class="nn">---</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="comments">Comments</h2>
+
+<p>Similar to TOC, the <a href="https://disqus.com/">Disqus</a> comments is loaded by default in each post, and the global switch is defined by variable <code class="highlighter-rouge">comments</code> in file <code class="highlighter-rouge">_data/settings.yml</code> . If you want to close the comment for specific post, add the following to the <strong>Front Matter</strong> of the post:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
+<span class="na">comments</span><span class="pi">:</span> <span class="no">false</span>
+<span class="nn">---</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="code-block">Code Block</h2>
+
+<p>Markdown symbols <code class="highlighter-rouge">```</code> can easily create a code block as following examples.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>This is a common code snippet, without syntax highlight and line number.
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="specific-language">Specific Language</h2>
+
+<p>Using <code class="highlighter-rouge">```Language</code> you will get code snippets with line Numbers and syntax highlight.</p>
+
+<blockquote>
+  <p><strong>Note</strong>: The Jekyll style <code class="highlighter-rouge">{% highlight LANGUAGE %}</code> or <code class="highlighter-rouge">{% highlight LANGUAGE linenos %}</code> are not allowed to be used in this theme !</p>
+</blockquote>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1"># Yaml code snippet</span>
+<span class="na">items</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">part_no</span><span class="pi">:</span>   <span class="s">A4786</span>
+      <span class="na">descrip</span><span class="pi">:</span>   <span class="s">Water Bucket (Filled)</span>
+      <span class="na">price</span><span class="pi">:</span>     <span class="m">1.47</span>
+      <span class="na">quantity</span><span class="pi">:</span>  <span class="m">4</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="liquid-codes">Liquid codes</h4>
+
+<p>If you want to display the <strong>Liquid</strong> snippet, surround the liquid code with <code class="highlighter-rouge">{% raw %}</code> and <code class="highlighter-rouge">{% endraw %}</code> .</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Pack'</span><span class="w"> </span><span class="p">%}</span>
+  This product's title contains the word Pack.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="learn-more">Learn More</h2>
+<p>For more knowledge about Jekyll posts, visit the <a href="https://jekyllrb.com/docs/posts/">Jekyll Docs: Posts</a>.</p>
+
+<h2 id="see-also">See Also</h2>
+
+<ul>
+  <li><a href="/posts/getting-started/">Getting Started</a></li>
+  <li><a href="/posts/text-and-typography/">Text and Typography</a></li>
+  <li><a href="/posts/customize-the-favicon/">Customize the Favicon</a></li>
+</ul>
