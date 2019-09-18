@@ -53,8 +53,8 @@ version: '3'
 services:
 
   mysql-db:
-    container_name: mysql-docker		# 指定容器的名称
-    image: mysql:8.0				    # 指定镜像和版本
+    container_name: mysql-docker        # 指定容器的名称
+    image: mysql:8.0                   # 指定镜像和版本
     ports:
       - "3306:3306"
     environment:
