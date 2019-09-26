@@ -10,7 +10,6 @@ MIT License
 
 import sys
 
-
 def get_yaml(path):
     """
     Return the Yaml block of a post and the linenumbers of it.
@@ -19,7 +18,7 @@ def get_yaml(path):
     yaml = ""
     num = 0
 
-    with open(path, 'r') as f:
+    with open(path, 'r', encoding='utf8', errors='ignore') as f:
         for line in f.readlines():
             if line.strip() == '---':
                 if end:

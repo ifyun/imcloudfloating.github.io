@@ -23,7 +23,6 @@ from ruamel.yaml import YAML
 from utils.common import get_yaml
 from utils.common import check_py_version
 
-
 POSTS_PATH = "_posts"
 
 
@@ -32,20 +31,19 @@ def update_lastmod(verbose):
     yaml = YAML()
 
     for post in glob.glob(os.path.join(POSTS_PATH, "*.md")):
-
-        git_log_count = subprocess.getoutput("git log --pretty=%ad {} | wc -l"
-                                             .format(post))
+        post = post.encode('utf8')
+        git_log_count = subprocess.getoutput("git log --pretty=%ad {} | wc -l".format(post))
 
         if git_log_count == "1":
             continue
 
         git_lastmod = subprocess.getoutput(
-            "git log -1 --pretty=%ad --date=iso " + post)
+            "git log -1 --pretty=%ad --date=iso {}".format(post))
 
         if not git_lastmod:
             continue
 
-        lates_commit = subprocess.getoutput("git log -1 --pretty=%B " + post)
+        lates_commit = subprocess.getoutput("git log -1 --pretty=%B {}".format(post))
 
         if "[Automation]" in lates_commit and "Lastmod" in lates_commit:
             continue
@@ -66,7 +64,7 @@ def update_lastmod(verbose):
         if os.path.isfile(output):
             os.remove(output)
 
-        with open(output, 'w') as new, open(post, 'r') as old:
+        with open(output, 'w') as new, open(post, 'r', encoding='utf8') as old:
             new.write("---\n")
             yaml.dump(meta, new)
             new.write("---\n")
