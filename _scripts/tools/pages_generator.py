@@ -34,7 +34,7 @@ def get_path(dir):
     r_index = len(path)
     while r_index > 0:
         r_index -= 1
-        if (path[r_index] == '/'):
+        if (path[r_index] == '\\'):
             count -= 1
             if count == 0:
                 return path[:r_index + 1] + dir
