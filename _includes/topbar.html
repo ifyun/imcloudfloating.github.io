@@ -7,22 +7,28 @@
 
   <div id="topbar-main" class="d-flex h-100 align-items-center justify-content-between col-12 col-md-12 col-lg-11 col-xl-11 pl-md-2 pr-md-2 pl-lg-2 pr-lg-2">
 
+    {% assign lang = site.data.meta.lang %}
+
     <span id="breadcrumb">
       {% for item in page.breadcrumb %}
         {% if item.url %}
         <span>
           <a href="{{ site.baseurl }}{{ item.url | remove: '.html'}}">
-            {{ item.label }}
+            {{ item.label[lang] }}
           </a>
         </span>
         {% else %}
-          <span>{{ item.label }}</span>
+          <span>{{ item.label[lang] }}</span>
         {% endif %}
       {% endfor %}
 
-      {% unless page.layout == "home" %}
+      {% if page.title.en or page.title.zh %}
+        {% unless page.layout == "home" %}
+        <span>{{ page.title.[lang] }}</span>
+        {% endunless %}
+      {% else %}
         <span>{{ page.title }}</span>
-      {% endunless %}
+      {% endif %}
 
     </span><!-- endof #breadcrumb -->
 
@@ -30,18 +36,18 @@
 
     <div id="topbar-title">
     {% if page.location %}
-      {{- page.location -}}
+      {{-page.location[lang]-}}
     {% elsif page.layout == "home" %}
-      {{- site.title -}}
+      {{-site.data.meta.title-}}
     {% else %}
-      {{- page.title -}}
+      {{-page.title[lang]-}}
     {% endif %}
     </div>
 
     <i id="search-trigger" class="fas fa-search fa-fw"></i>
     <span id="search-wrap">
       <i class="fas fa-search fa-fw"></i>
-      <input class="form-control" id="search-input" type="search" placeholder="{{ site.data.label.search_hint }}...">
+      <input class="form-control" id="search-input" type="search" placeholder="{{ site.data.label.search_hint[lang] }}...">
     </span>
     <a href="javascript:;">Cancel</a>
   </div>

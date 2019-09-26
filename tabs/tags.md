@@ -1,10 +1,14 @@
 ---
-title: Tags
+layout: page
+title:
+  zh: 标签集
+  en: Tags
 
 # All the Tags of posts.
 # © 2017-2019 Cotes Chung
 # MIT License
 ---
+
 
 {%comment%}
   'site.tags' looks like a Map, e.g. site.tags.MyTag.[ Post0, Post1, ... ]

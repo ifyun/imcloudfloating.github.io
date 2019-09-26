@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Update (or create if not existed) field 'seo.date_modified'
-in posts' Front Matter by their latest git commit date.
+Update (create if not existed) YAML 'lastmod' in posts
+according to their last git log date.
 
 Dependencies:
   - git
@@ -19,9 +19,8 @@ import os
 import subprocess
 import shutil
 
+from utils.frontmatter_getter import get_yaml
 from ruamel.yaml import YAML
-from utils.common import get_yaml
-from utils.common import check_py_version
 
 POSTS_PATH = "_posts"
 
@@ -31,40 +30,37 @@ def update_lastmod(verbose):
     yaml = YAML()
 
     for post in glob.glob(os.path.join(POSTS_PATH, "*.md")):
-        post = post.encode('utf8')
-        git_log_count = subprocess.getoutput("git log --pretty=%ad {} | wc -l".format(post))
 
-        if git_log_count == "1":
+        ps = subprocess.Popen(("git", "log", "--pretty=%ad", post),
+                              stdout=subprocess.PIPE)
+        git_log_count = subprocess.check_output(('wc', '-l'), stdin=ps.stdout)
+        ps.wait()
+
+        if git_log_count.strip() == "1":
             continue
 
-        git_lastmod = subprocess.getoutput(
-            "git log -1 --pretty=%ad --date=iso {}".format(post))
+        git_lastmod = subprocess.check_output([
+            "git", "log", "-1", "--pretty=%ad", "--date=iso", post]).strip()
 
         if not git_lastmod:
-            continue
-
-        lates_commit = subprocess.getoutput("git log -1 --pretty=%B {}".format(post))
-
-        if "[Automation]" in lates_commit and "Lastmod" in lates_commit:
             continue
 
         frontmatter, line_num = get_yaml(post)
         meta = yaml.load(frontmatter)
 
-        if 'seo' in meta:
-            if ('date_modified' in meta['seo'] and
-                    meta['seo']['date_modified'] == git_lastmod):
+        if 'lastmod' in meta:
+            if meta['lastmod'] == git_lastmod:
                 continue
             else:
-                meta['seo']['date_modified'] = git_lastmod
+                meta['lastmod'] = git_lastmod
         else:
-            meta.insert(line_num, 'seo', dict(date_modified=git_lastmod))
+            meta.insert(line_num, 'lastmod', git_lastmod)
 
         output = 'new.md'
         if os.path.isfile(output):
             os.remove(output)
 
-        with open(output, 'w') as new, open(post, 'r', encoding='utf8') as old:
+        with open(output, 'w') as new, open(post, 'r') as old:
             new.write("---\n")
             yaml.dump(meta, new)
             new.write("---\n")
@@ -83,10 +79,15 @@ def update_lastmod(verbose):
         count += 1
 
         if verbose:
-            print("[INFO] update 'lastmod' for:" + post)
+            print "[INFO] update 'lastmod' for:" + post
 
-    if count > 0:
-        print("[INFO] Success to update lastmod for {} post(s).".format(count))
+    print ("[INFO] Success to update lastmod for {} post(s).").format(count)
+
+    # I don't even need to commit these. HO HO HO !
+    # if count > 0:
+    #     subprocess.call(["git", "add", POSTS_PATH])
+    #     subprocess.call(["git", "commit", "-m",
+    #                      "[Automation] Update lastmod for post(s)."])
 
 
 def help():
@@ -97,8 +98,6 @@ def help():
 
 
 def main():
-    check_py_version()
-
     verbose = False
 
     if len(sys.argv) > 1:

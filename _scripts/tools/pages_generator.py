@@ -2,26 +2,18 @@
 # -*- coding: utf-8 -*-
 
 '''
-Generates HTML pages for Categories and Tags in posts.
-
-Dependencies:
-  - git
-  - ruamel.yaml
-
+Generates HTML page for categories and tags by posts.
 © 2018-2019 Cotes Chung
 MIT License
 '''
-
 
 import os
 import glob
 import shutil
 import sys
-import subprocess
 
 from ruamel.yaml import YAML
-from utils.common import get_yaml
-from utils.common import check_py_version
+from utils.frontmatter_getter import get_yaml
 
 
 DRAFTS_DIR = '_drafts'
@@ -42,7 +34,7 @@ def get_path(dir):
     r_index = len(path)
     while r_index > 0:
         r_index -= 1
-        if (path[r_index] == '/' or path[r_index] == '\\'):
+        if (path[r_index] == '/'):
             count -= 1
             if count == 0:
                 return path[:r_index + 1] + dir
@@ -97,20 +89,18 @@ def generate_category_pages(is_verbose):
 
     for category in categories:
         new_page = path + '/' + category.replace(' ', '-').lower() + '.html'
-        with open(new_page, 'w+', encoding='utf8') as html:
+        with open(new_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(CATEGORY_LAYOUT))
-            html.write("title: {}\n".format(category))
-            html.write("category: {}\n".format(category))
+            html.write("title: {}\n".format(category.encode('utf-8')))
+            html.write("category: {}\n".format(category.encode('utf-8')))
             html.write("---")
 
             if is_verbose:
                 print("[INFO] Created page: " + new_page)
 
-    change = subprocess.getoutput("git status categories -s")
-    if change:
-        print("[INFO] Succeed! {} category-pages created."
-              .format(len(categories)))
+    print("[INFO] Succeed! {} category-pages created."
+          .format(len(categories)))
 
 
 def get_all_tags():
@@ -127,7 +117,7 @@ def get_all_tags():
                     if tag not in all_tags:
                         all_tags.append(tag)
             else:
-                raise Exception("Didn't find 'tags' in \
+                raise Exception("Cannot found 'tags' in \
                   post '{}' !".format(file))
 
     return all_tags
@@ -147,16 +137,14 @@ def generate_tag_pages(is_verbose):
         with open(tag_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(TAG_LAYOUT))
-            html.write("title: {}\n".format(tag))
-            html.write("tag: {}\n".format(tag))
+            html.write("title: {}\n".format(tag.encode('utf-8')))
+            html.write("tag: {}\n".format(tag.encode('utf-8')))
             html.write("---")
 
             if is_verbose:
                 print("[INFO] Created page: " + tag_page)
 
-    change = subprocess.getoutput("git status tags -s")
-    if change:
-        print("[INFO] Succeed! {} tag-pages created.".format(len(all_tags)))
+    print("[INFO] Succeed! {} tag-pages created.".format(len(all_tags)))
 
 
 def help():
@@ -168,8 +156,6 @@ def help():
 
 
 def main():
-    check_py_version()
-
     is_verbose = False
 
     if len(sys.argv) > 1:

@@ -4,16 +4,18 @@
   MIT License
 -->
 
+{% assign lang = site.data.meta.lang %}
+
 <div class="panel-group">
 
   {% assign lastmod_list = "" | split: "" %}
 
   {% for post in site.posts %}
-    {% if post.date >= post.seo.date_modified or post.seo.date_modified == nil %}
+    {% if post.date >= post.lastmod or post.lastmod == nil %}
       {% continue %}
     {% endif%}
     {% capture item %}
-      {{ post.seo.date_modified }}::{{ post.title }}::{{ post.url }}
+      {{ post.lastmod }}::{{ post.title }}::{{ post.url }}
     {% endcapture %}
     {% assign lastmod_list = lastmod_list | push: item %}
   {% endfor %}
@@ -21,7 +23,7 @@
   {% if lastmod_list.size > 0 %}
   <div id="panel-update" class="post mb-4"">
     <h3 data-toc-skip>
-      {{ site.data.label.panel.lastmod }}
+      {{ site.data.label.panel.lastmod[lang] }}
     </h3>
     <ul class="post-content pl-0 mt-2 pb-1">
     {% assign MAX_SIZE = 5 %}
@@ -41,7 +43,7 @@
 
   <div id="panel-tags">
     <h3 data-toc-skip>
-      {{ site.data.label.panel.trending_tags }}
+      {{ site.data.label.panel.tags[lang] }}
     </h3>
     <div class="d-flex flex-wrap mt-2 pb-1 pr-3">
       {% capture tags_array %}

@@ -3,19 +3,20 @@
   © 2017-2019 Cotes Chung
   MIT License
 -->
-
 <head>
   <title>
     {%- if page.layout == "home" -%}
-      {{- site.title -}}
+      {{- site.data.meta.title -}}
+    {%- elsif page.title.en or page.title.zh  -%}
+      {%- assign lang = site.data.meta.lang -%}
+      {{ page.title[lang] }} | {{ site.data.meta.title }}
     {%- else -%}
-      {{ page.title }} | {{ site.title }}
+      {{ page.title }} | {{ site.data.meta.title }}
     {%- endif -%}
   </title>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  {% seo title=false %}
 
   {% include favicons.html %}
 

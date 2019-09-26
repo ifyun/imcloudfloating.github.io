@@ -5,25 +5,23 @@ layout: compress
 # MIT License
 ---
 
-{% capture source %}
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>{{ site.url }}</id>
-  <title>{{ site.title }}</title>
-  <subtitle>{{ site.description }}</subtitle>
+  <id>{{ site.data.meta.uri }}</id>
+  <title>{{ site.data.meta.title }}</title>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <author>
-    <name>{{ site.author }}</name>
-    <uri>{{ site.url }}</uri>
+    <name>{{ site.data.meta.profile.name }}</name>
+    <uri>{{ site.data.meta.uri }}</uri>
   </author>
   <link href="/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="{{ site.url }}" rel="alternate" type="text/html" />
+  <link href="{{ site.data.meta.uri }}" rel="alternate" type="text/html" />
   <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
-  <rights> © {{ 'now' | date: '%Y' }} {{ site.author }} </rights>
+  <rights> © {{ 'now' | date: '%Y' }} {{ site.data.meta.profile.name }} </rights>
   <icon>{{ site.baseurl }}/assets/img/favicons/favicon.ico</icon>
   <logo>{{ site.baseurl }}/assets/img/favicons/favicon-96x96.png</logo>
 
 {% for post in site.posts limit: 5 %}
-  {% assign post_absolute_url = site.url | append: post.url %}
+  {% assign post_absolute_url = site.data.meta.uri | append: post.url %}
   <entry>
     <title>{{ post.title }}</title>
     <link href="{{ post_absolute_url }}" rel="alternate" type="text/html" title="{{ post.title }}" />
@@ -36,7 +34,7 @@ layout: compress
     <id>{{ post_absolute_url }}</id>
     <content src="{{ post_absolute_url }}" />
     <author>
-      <name>{{ site.author }}</name>
+      <name>{{ site.data.meta.profile.name }}</name>
     </author>
 
   {% if post.categories %}
@@ -48,11 +46,9 @@ layout: compress
   {% if post.summary %}
     <summary>{{ post.summary | strip }}</summary>
   {% else %}
-    <summary>{{ post.content | strip_html | truncate: 200 }}</summary>
+    <summary>{{ post.content | strip_html | replace: '&', '' | truncate: 200 }}</summary>
   {% endif %}
 
   </entry>
 {% endfor %}
 </feed>
-{% endcapture %}
-{{ source | replace: '&', '&amp;' }}

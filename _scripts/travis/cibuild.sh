@@ -4,15 +4,16 @@
 # MIT Licensed
 
 USERNAME=cotes2020
+PROJECT=jekyll-theme-chirpy
 
 POSTS_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-posts.git
 META_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-meta.git
 PV_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/ga-pageviews.git
 
-BLOG_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/${USERNAME}.github.io.git
+BLOG_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$USERNAME.github.io.git
 DEMO_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/chirpy-demo.git
 
-PROJ_LOCAL=$(pwd)   # equls to $TRAVIS_BUILD_DIR/$USERNAME/$CUR_PROJECT
+PROJ_LOCAL=$(pwd)   # equls to $TRAVIS_BUILD_DIR/$USERNAME/$PROJECT
 POSTS_LOCAL=../blog-posts
 META_LOCAL=../blog-meta
 PV_CACHE=../ga-pageviews
@@ -34,29 +35,22 @@ init() {
   fi
 
   # enable error reporting to the console
-  set -eu
+  set -e
 
   clear "_site"
 
   # Play trick
   echo "$CNAME" > CNAME
+  META_FILE=_data/meta.yml
 
-  CONFIG=_config.yml
-  sed -i "s/\(^url:.*\)/url: 'https:\/\/${CNAME}'/g" $CONFIG
-  sed -i "s/\(.*id:.*\)/  id: '${GA_ID}'/g" $CONFIG
-  sed -i "s/\(.*shortname:.*\)/  shortname: '${DISQUS}'/g" $CONFIG
-  sed -i "s/\(.*pv:.*\)/  pv: true/g" $CONFIG
-  sed -i \
-      "s/\(^google_site_verification:.*\)/google_site_verification: '${SITE_VERIFICATION}'/g" \
-      $CONFIG
+  sed -i "/^ga/d" $META_FILE
+  echo -e "\nga_id: \"$GA_ID\"" >> $META_FILE
 
-  # PV local cache
-  wget $PV_PROXY_URL -O assets/data/pageviews.json -q
+  sed -i "/^disqus/d" $META_FILE
+  echo -e "\ndisqus_shortname: \"$DISQUS\"" >> $META_FILE
 
-  # Proxy URL
-  URL_FILE=assets/data/proxy.json
-  tmp=$(mktemp)
-  jq -c --arg PV_PROXY_URL $PV_PROXY_URL '.proxyUrl = $PV_PROXY_URL' $URL_FILE > $tmp && mv $tmp $URL_FILE
+  sed -i "/^uri/d" $META_FILE
+  echo -e "\nuri: \"https://$CNAME\"" >> $META_FILE
 
   # Git settings
   git config --global user.email "travis@travis-ci.org"
@@ -65,7 +59,6 @@ init() {
   git clone ${POSTS_REPO} ${POSTS_LOCAL}
   git clone ${META_REPO} ${META_LOCAL} --depth=1
   git clone $PV_REPO $PV_CACHE --depth=1
-
 }
 
 
