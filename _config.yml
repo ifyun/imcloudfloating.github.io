@@ -1,7 +1,7 @@
 # The Site Settings
 # © 2017-2019 Cotes Chung
 # MIT licensed
-
+encoding: 'utf-8'
 baseurl: '' # if your site type is Project Pages in GitHub Pages, change it to '/projectname'
 
 paginate: 10

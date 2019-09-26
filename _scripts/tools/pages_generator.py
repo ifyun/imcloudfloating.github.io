@@ -156,7 +156,7 @@ def help():
 
 
 def main():
-    is_verbose = False
+    is_verbose = True
 
     if len(sys.argv) > 1:
         for arg in sys.argv:
