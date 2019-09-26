@@ -2,14 +2,19 @@
 # -*- coding: utf-8 -*-
 
 '''
-Read the posts and return a tuple that consisting of
-Front Matter and its line number.
+Common functions to other scripts.
+
 © 2018-2019 Cotes Chung
 MIT License
 '''
 
+import sys
+
 
 def get_yaml(path):
+    """
+    Return the Yaml block of a post and the linenumbers of it.
+    """
     end = False
     yaml = ""
     num = 0
@@ -28,3 +33,11 @@ def get_yaml(path):
             yaml += line
 
     return yaml, num
+
+
+def check_py_version():
+    if not sys.version_info.major == 3 and sys.version_info.minor >= 5:
+        print("WARNING: This script requires Python 3.5 or higher, "
+              "however you are using Python {}.{}."
+              .format(sys.version_info.major, sys.version_info.minor))
+        sys.exit(1)

@@ -25,17 +25,17 @@ layout: default
         {% endfor %}
         </div>
         <!-- lastmod -->
-        {% if page.lastmod > page.date %}
+        {% if page.seo.date_modified > page.date %}
         <div>
           Updated
-          <span class="timeago lastmod" data-toggle="tooltip" title="{{ page.lastmod | date: TOOLTIP_DATE }}">
-            {{ page.lastmod | date: POST_DATE }}
-            <i class="hidden">{{ page.lastmod | date_to_xmlschema}}</i>
+          <span class="timeago lastmod" data-toggle="tooltip" title="{{ page.seo.date_modified | date: TOOLTIP_DATE }}">
+            {{ page.seo.date_modified | date: POST_DATE }}
+            <i class="hidden">{{ page.seo.date_modified | date_to_xmlschema}}</i>
           </span>
         </div>
         {% endif %}
         <!-- page views -->
-        {% if site.data.meta.pv %}
+        {% if site.google_analytics.pv %}
         <div>
           <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin"></i></span> views
         </div>
@@ -86,7 +86,7 @@ layout: default
       </a>
     </div> <!-- end .post-pager -->
 
-    {% if site.data.meta.comments and page.comments %}
+    {% if site.disqus.comments and page.comments %}
       {% include disqus.html %}
     {% else %}
       <br>
@@ -97,11 +97,10 @@ layout: default
 
 <div id="post-panel" class="col-xl-3 pl-2">
   {% include panel.html %}
-  {% if site.data.meta.toc and page.toc %}
+  {% if site.toc and page.toc %}
   <div id="toc-wrap" class="topbar-down pr-4">
     <h3 data-toc-skip class="pl-3 pt-2">
-      {% assign lang = site.data.meta.lang %}
-      {{ site.data.label.panel.toc[lang] }}
+      {{ site.data.label.panel.toc }}
     </h3>
     <nav id="toc" data-toggle="toc"></nav>
   </div>
@@ -112,9 +111,7 @@ layout: default
 
 <script src="{{ site.baseurl }}/assets/js/dist/timeago.min.js"></script>
 
-{% if site.data.meta.pv %}
+{% if site.google_analytics.pv %}
 <script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>
 <script src="{{ site.baseurl }}/assets/js/dist/pageviews.min.js" async></script>
 {% endif %}
-
-<!-- <script src="//{{ site.data.meta.disqus_shortname }}.disqus.com/count.js" id="dsq-count-scr" async></script> -->

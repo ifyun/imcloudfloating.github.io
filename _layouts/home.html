@@ -27,7 +27,7 @@ layout: page
       <i class="hidden">{{ post.date | date_to_xmlschema }}</i>
       </span>
       <!-- page views -->
-      {% if site.data.meta.pv %}
+      {% if site.google_analytics.pv %}
       <i class="far fa-eye fa-fw"></i>
       <span id="pv_{{-post.title-}}" class="pageviews">
         <i class="fas fa-spinner fa-spin"></i>
@@ -120,16 +120,9 @@ layout: page
 </ul> <!-- .pagination -->
 {% endif %}
 
-
-{% comment %}
-{% if site.data.meta.comments %}
-<script src="{{ site.baseurl }}/assets/lib/iDisqus/disqus-config.min.js" async></script>
-{% endif %}
-{% endcomment %}
-
 <script src="{{ site.baseurl }}/assets/js/dist/timeago.min.js"></script>
 
-{% if site.data.meta.pv %}
+{% if site.google_analytics.pv %}
 <script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>
 <script src="{{ site.baseurl }}/assets/js/dist/pageviews.min.js" async></script>
 {% endif %}

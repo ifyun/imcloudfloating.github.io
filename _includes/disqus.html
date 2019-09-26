@@ -12,10 +12,10 @@
 <script src="{{ site.baseurl }}/assets/lib/jquery.disqusloader.min.js"></script>
 <script>
   var options = {
-    scriptUrl: '//{{ site.data.meta.disqus_shortname }}.disqus.com/embed.js',
+    scriptUrl: '//{{ site.disqus.shortname }}.disqus.com/embed.js',
 
     disqusConfig: function() {
-      this.page.url = '{{ site.data.meta.uri | append: site.baseurl | append: page.url }}';
+      this.page.url = '{{ site.url | append: site.baseurl | append: page.url }}';
       this.page.identifier = '{{ page.url }}';
     }
   };
