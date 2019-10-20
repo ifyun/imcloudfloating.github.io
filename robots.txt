@@ -10,4 +10,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: {{ site.data.meta.uri | append: site.baseurl }}/sitemap.xml
+Sitemap: {{ site.url | append: site.baseurl }}/sitemap.xml

@@ -3,20 +3,19 @@
   © 2017-2019 Cotes Chung
   MIT License
 -->
+
 <head>
   <title>
     {%- if page.layout == "home" -%}
-      {{- site.data.meta.title -}}
-    {%- elsif page.title.en or page.title.zh  -%}
-      {%- assign lang = site.data.meta.lang -%}
-      {{ page.title[lang] }} | {{ site.data.meta.title }}
+      {{- site.title -}}
     {%- else -%}
-      {{ page.title }} | {{ site.data.meta.title }}
+      {{ page.title }} | {{ site.title }}
     {%- endif -%}
   </title>
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% seo title=false %}
 
   {% include favicons.html %}
 
@@ -25,7 +24,9 @@
     integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous">
 
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"
+    integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+    crossorigin="anonymous">
 
   <link rel="stylesheet"
     href="{{ site.baseurl }}/assets/css/styles.css">

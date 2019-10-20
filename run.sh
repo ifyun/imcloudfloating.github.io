@@ -32,15 +32,10 @@ init() {
     rm -rf .container
   fi
 
-  if [[ -d ../.chirpy-cache ]]; then
-    rm -rf ../.chirpy-cache
-  fi
-
-  mkdir ../.chirpy-cache
-  cp -r * ../.chirpy-cache
-  cp -r .git  ../.chirpy-cache
-
-  mv ../.chirpy-cache .container
+  temp=$(mktemp -d)
+  cp -r * $temp
+  cp -r .git $temp
+  mv $temp .container
 
   trap cleanup INT
 }
@@ -100,7 +95,7 @@ done
 init
 
 cd .container
-python _scripts/tools/init_all.py
+python _scripts/py/init_all.py
 
 echo "\$ $cmd"
 eval $cmd

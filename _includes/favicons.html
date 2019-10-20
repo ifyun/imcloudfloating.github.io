@@ -7,10 +7,6 @@
 
 {% capture icon_url %}{{ site.baseurl }}/assets/img/favicons{% endcapture %}
 
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="{{ icon_url }}/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-
 <link rel="shortcut icon" href="{{ icon_url }}/favicon.ico" type="image/x-icon">
 <link rel="icon" href="{{ icon_url }}/favicon.ico" type="image/x-icon">
 
@@ -31,4 +27,8 @@
 <link rel="icon" type="image/png" sizes="96x96" href="{{ icon_url }}/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ icon_url }}/favicon-16x16.png">
 
-<link rel="manifest" href="{{ site.baseurl }}/manifest.json">
+<link rel="manifest" href="{{ icon_url }}/manifest.json">
+<meta name='msapplication-config' content='{{ icon_url }}/browserconfig.xml'>
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{{ icon_url }}/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">

@@ -21,7 +21,7 @@ layout: compress
       {% endcapture %}
 
   <url>
-    <loc>{{ site.data.meta.uri | append: site.baseurl | append: post.url }}</loc>
+    <loc>{{ site.url | append: site.baseurl | append: post.url }}</loc>
     <lastmod>{{ lastmod | date_to_xmlschema }}</lastmod>
 
     {% if post.sitemap.changefreq %}
@@ -56,7 +56,7 @@ layout: compress
   {% endcapture %}
 
    <url>
-    <loc>{{ site.data.meta.uri | append: site.baseurl | append: page.url | remove: "index.html" }}</loc>
+    <loc>{{ site.url | append: site.baseurl | append: page.url | remove: "index.html" }}</loc>
     <lastmod>{{ lastmod | date_to_xmlschema }}</lastmod>
 
     {% if page.sitemap.changefreq %}
