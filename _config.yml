@@ -15,7 +15,7 @@ url: 'https://blog.cloudli.top'
 
 author: Cloud Li                          # change to your full name
 
-logo: /assets/img/sample/profile.jpg    # Support network resources.
+logo: https://avatars2.githubusercontent.com/u/22742796?s=460&v=4     # Support network resources.
 
 github:
   username: imcloudfloating             # change to your github username
