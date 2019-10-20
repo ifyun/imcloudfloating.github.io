@@ -48,7 +48,7 @@ google_analytics:
 
 disqus:
   shortname: 'disqus'   # Change to your Disqus shortname.
-  comments: true        # boolean type, the gobal switch of posts' comments.
+  comments: false        # boolean type, the gobal switch of posts' comments.
 
 # The year your website was first run.
 first_run: 2019
