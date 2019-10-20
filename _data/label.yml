@@ -3,15 +3,25 @@
 # MIT Licensed
 
 tabs:
-  - { name: "Home" }
-  - { name: "Categories", path: tabs, url: categories }
-  - { name: "Tags", path: tabs, url: tags }
-  - { name: "Archives", path: tabs, url: archives }
-  - { name: "About", path: tabs, url: about }
+  # - { name: "Home" }
+  # - { name: "Categories", path: tabs, url: categories }
+  # - { name: "Tags", path: tabs, url: tags }
+  # - { name: "Archives", path: tabs, url: archives }
+  # - { name: "About", path: tabs, url: about }
+
+  - { name: "首页" }
+  - { name: "分类", path: tabs, url: categories }
+  - { name: "标签", path: tabs, url: tags }
+  - { name: "归档", path: tabs, url: archives }
+  - { name: "关于", path: tabs, url: about }
 
 panel:
-  lastmod: "Recent Update"
-  trending_tags: "Trending Tags"
-  toc: "Contents"
+  # lastmod: "Recent Update"
+  # trending_tags: "Trending Tags"
+  # toc: "Contents"
 
-search_hint: "Search"   # text show on search bar
+  lastmod: "最近更新"
+  trending_tags: "热门标签"
+  toc: "内容"
+
+search_hint: "搜索"   # text show on search bar
