@@ -47,8 +47,8 @@ google_analytics:
   pv: false
 
 disqus:
-  shortname: 'disqus'   # Change to your Disqus shortname.
-  comments: false        # boolean type, the gobal switch of posts' comments.
+  shortname: 'blog.cloudli.top'   # Change to your Disqus shortname.
+  comments: true        # boolean type, the gobal switch of posts' comments.
 
 # The year your website was first run.
 first_run: 2019
