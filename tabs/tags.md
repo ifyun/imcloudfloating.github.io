@@ -1,5 +1,5 @@
 ---
-title: Tags
+title: 标签
 
 # All the Tags of posts.
 # © 2017-2019 Cotes Chung

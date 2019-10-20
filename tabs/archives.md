@@ -1,5 +1,5 @@
 ---
-title: Archives
+title: 归档
 
 # The Archives of posts.
 # © 2017-2019 Cotes Chung
