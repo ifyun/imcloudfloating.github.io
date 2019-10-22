@@ -1,8 +1,10 @@
 ---
-title: "Spring Boot & MyBatis 实现乐观锁和悲观锁"
+title: Spring Boot & MyBatis 实现乐观锁和悲观锁
 date: 2019-09-04 20:25:00 +0800
 categories: [Spring Boot, 锁]
 tags: [Spring Boot]
+seo:
+  date_modified: 2019-10-22 15:24:11 +0800
 ---
 
 以转账操作为例，实现并测试乐观锁和悲观锁。

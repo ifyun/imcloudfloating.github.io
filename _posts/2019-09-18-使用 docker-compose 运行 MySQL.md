@@ -1,8 +1,10 @@
 ---
-title: "使用 docker-compose 运行 MySQL"
+title: 使用 docker-compose 运行 MySQL
 date: 2019-09-18 11:45 +0800
 categories: [Docker]
 tags: [Docker, MySQL]
+seo:
+  date_modified: 2019-09-18 11:55:52 +0800
 ---
 
 ## 目录结构
