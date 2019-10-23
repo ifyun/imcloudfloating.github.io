@@ -2,7 +2,7 @@
 title: Java lambda表达式
 date: 2019-09-16 23:26 +0800
 categories: [Java]
-tags: [Java, lambda]
+tags: [Java, 函数式编程]
 seo:
   date_modified: 2019-09-16 23:35:52 +0800
 ---
