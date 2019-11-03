@@ -12,8 +12,6 @@ Dockerfile 指令详解请访问：[http://blog.cloudli.top/posts/Dockerfile-指
 
 Alpine 是一个非常轻量的 Linux 镜像，他只有大约 5MB 的大小，基于它构建镜像，可以大大减少镜像的体积。
 
-Alpine 的 Docker Hub 页面：[https://hub.docker.com/_/alpine](https://hub.docker.com/_/alpine)
-
 ```shell
 docker pull alpine
 ```
