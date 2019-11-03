@@ -6,7 +6,7 @@ tags: [Docker]
 
 ---
 
-Dockerfile 指令详解请访问：[https://www.cnblogs.com/cloudfloating/p/11737447.html](https://www.cnblogs.com/cloudfloating/p/11737447.html)
+Dockerfile 指令详解请访问：[http://blog.cloudli.top/posts/Dockerfile-指令详解/](http://blog.cloudli.top/posts/Dockerfile-指令详解/)
 
 ## 使用 Alpine Linux 作为基础镜像
 
